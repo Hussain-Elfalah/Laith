@@ -102,3 +102,15 @@ export const login = async (req, res) => {
         res.status(500).json({ message: 'Server error' });
     }
 };
+
+export const logout = async (req, res) => {
+    try {
+        res.json({
+            success: true,
+            message: 'Successfully logged out'
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, message: 'Server error' });
+    }
+};

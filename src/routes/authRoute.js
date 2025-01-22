@@ -1,7 +1,8 @@
 import express from 'express';
-import { register, login } from '../controllers/authController.js';
+import { register, login, logout } from '../controllers/authController.js';
 import passport from '../config/passport.js';
 import { registerValidation, loginValidation } from '../middlewares/Validation.js';
+import { authenticateJWT } from '../middlewares/auth.js';
 
 const router = express.Router();
 
@@ -9,6 +10,7 @@ const router = express.Router();
 // Routes
 router.post('/register', registerValidation, register);
 router.post('/login', loginValidation, login);
+router.post('/logout', authenticateJWT, logout);
 
 // Test route to verify user's token
 router.get('/me', passport.authenticate('jwt', { session: false }), (req, res) => {

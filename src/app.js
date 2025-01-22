@@ -37,7 +37,3 @@ app.listen(PORT, () => {
   // console.log(`📝 API Documentation available at http://localhost:${PORT}/api-docs`);
   console.log(`⚡️ Environment: ${process.env.NODE_ENV || 'development'}`);
 });
-
-
-
-
